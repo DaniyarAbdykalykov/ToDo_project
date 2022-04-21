@@ -18,11 +18,16 @@ from django.urls import path
 from main.views import homepage, test, second
 from django.conf import settings
 from django.conf.urls.static import static
+from homework.views import homework, welcomepage
+
 
 urlpatterns = [
     path('admin/', admin.site.urls),
     path('', homepage, name='home'),
     path('test/', test, name='test'),
+    path('homework/', homework, name='homework'),
+    path('welcomepage/', welcomepage, name='welcomepage'),
     path('test2/', second), 
 ]   + static(settings.STATIC_URL, document_root = settings.STATIC_ROOT) \
     + static(settings.MEDIA_URL, document_root = settings.MEDIA_ROOT)
+
