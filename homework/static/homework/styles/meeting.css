@@ -48,7 +48,7 @@ section{
     width: 100%;
 }
 
-.todo_item{
+.todo_item{    
     border: 1px solid gray;
     border-radius: 5px;
     width: 24%;
@@ -77,7 +77,7 @@ section{
 }
 
 .todo_item_header{
-    display: flex;
+    display: flex;    
     align-items: center;
     min-height: 35px;
 }
@@ -107,4 +107,16 @@ section{
     height: 25px;
     margin: 0 5px;
     cursor: pointer;
+}
+
+.todo_item_comment p{
+    font-size: 12px;
+    font-family: sans-serif;
+    color: #757575;
+    font-style: italic;
+}
+
+.todo_item_phone_number p{
+    font-size: 15px;
+    font-family: sans-serif;
 }

@@ -7,7 +7,7 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>ToMeet</title>
-    <link rel="stylesheet" href="{% static 'styles/index.css' %}" />
+    <link rel="stylesheet" href="{% static 'homework/styles/meeting.css' %}" />
     <link rel="stylesheet" href="{% static 'styles/checkbox.css' %}">
 </head>
 
@@ -28,11 +28,16 @@
                         <input type="checkbox" />
                         <span class="checkmark"></span>
                     </label>
-                    <h4>{{tomeet.persone}}</h4>
-                    <p>{{ tomeet.phone_number }}</p>
+                    <h4>Встреча с {{tomeet.persone}}</h4>
+                </div>
+                <div class="todo_item_phone_number">
+                    <p>контакт: {{ tomeet.phone_number }}</p>
+                </div>
+                <div class="todo_item_comment">
+                    <p>{{ tomeet.comment }}</p>
                 </div>
                 <div class="todo_item_footer">
-                    <p>{{ tomeet.date_of_meeting }}</p>
+                    <p class="paleText">{{ tomeet.date_of_meeting }}</p>
                     
                     <div class="action_buttons">
                         <img src="./icons/unmarked.png" />
