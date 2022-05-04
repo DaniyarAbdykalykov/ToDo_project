@@ -15,8 +15,14 @@
     <section>
 
         <div class="create_container">
-            <input class="create_input" type="text" placeholder="Напишите сюда новую задачу" />
-            <button class="create_button">Добавить</button>
+            <form action="{% url 'add-meeting' %}" method="POST">
+                {% csrf_token %}
+                <input class="create_input" type="text" placeholder="С кем нужно встретиться" name="todo_persone" />
+                <input class="create_input" type="text" placeholder="Номер телефона" name="meeting_phone" />
+                <input class="create_input" type="text" placeholder="Комментарий" name="meeting_comment" />
+                <input class="create_input" type="datetime-local" name="meeting_date" />
+                <button class="create_button">Добавить</button>
+            </form>
         </div>
 
         <div class="todo_container">
@@ -40,8 +46,8 @@
                     <p class="paleText">{{ tomeet.date_of_meeting }}</p>
                     
                     <div class="action_buttons">
-                        <img src="./icons/unmarked.png" />
-                        <img src="./icons/delete.png" />
+                        <img src="{% static './icons/unmarked.png' %}" />
+                        <img src="{% static './icons/delete.png' %}" />
                     </div>
                 </div>
             </div>

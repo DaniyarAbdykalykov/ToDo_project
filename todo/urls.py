@@ -31,6 +31,7 @@ urlpatterns = [
     path('test2/', second),
     path('meeting/', meeting, name='meeting'),
     path('goal_for_month/', goal_for_month, name='Goal_for_month'),
-    path('add-todo/', add_todo, name='add-todo')
+    path('add-todo/', add_todo, name='add-todo'),
+    path('add-meeting/', add_meeting, name='add-meeting'),
 ]   + static(settings.STATIC_URL, document_root = settings.STATIC_ROOT) \
     + static(settings.MEDIA_URL, document_root = settings.MEDIA_ROOT)
