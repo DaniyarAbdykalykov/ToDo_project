@@ -16,10 +16,10 @@ Including another URLconf
 from unicodedata import name
 from django.contrib import admin
 from django.urls import path
-from main.views import homepage, test, second
+from main.views import *
 from django.conf import settings
 from django.conf.urls.static import static
-from homework.views import homework, welcomepage, meeting, goal_for_month
+from homework.views import *
 
 
 urlpatterns = [
@@ -30,6 +30,7 @@ urlpatterns = [
     path('welcomepage/', welcomepage, name='welcomepage'),
     path('test2/', second),
     path('meeting/', meeting, name='meeting'),
-    path('goal_for_month/', goal_for_month, name='Goal_for_month')
+    path('goal_for_month/', goal_for_month, name='Goal_for_month'),
+    path('add-todo/', add_todo, name='add-todo')
 ]   + static(settings.STATIC_URL, document_root = settings.STATIC_ROOT) \
     + static(settings.MEDIA_URL, document_root = settings.MEDIA_ROOT)
