@@ -30,3 +30,14 @@ def delete_to_meet(request, id):
     tomeet.delete()
     return redirect(meeting)
 
+def mark_to_meet(request, id):
+    tomeet = ToMeet.objects.get(id=id)
+    tomeet.is_favorite = True
+    tomeet.save()
+    return redirect(meeting)
+
+def unmark_to_meet(request, id):
+    tomeet = ToMeet.objects.get(id=id)
+    tomeet.is_favorite = False
+    tomeet.save()
+    return redirect(meeting)
