@@ -40,5 +40,6 @@ urlpatterns = [
     path('mark-to-meet/<id>/', mark_to_meet, name='mark-to-meet'),
     path('unmark-to-meet/<id>/', unmark_to_meet, name='unmark-to-meet'),
     path('close-todo/<id>/', close_todo, name='close-todo'),
+    path('close-to-meet/<id>/', close_to_meet, name='close-to-meet'),
 ]   + static(settings.STATIC_URL, document_root = settings.STATIC_ROOT) \
     + static(settings.MEDIA_URL, document_root = settings.MEDIA_ROOT)

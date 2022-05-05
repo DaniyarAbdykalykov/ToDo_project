@@ -41,3 +41,10 @@ def unmark_to_meet(request, id):
     tomeet.is_favorite = False
     tomeet.save()
     return redirect(meeting)
+
+def close_to_meet(request, id):
+    tomeet = ToMeet.objects.get(id=id)
+    tomeet.is_closed = not tomeet.is_closed
+    tomeet.save()
+    return redirect(meeting)
+
