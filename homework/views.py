@@ -25,3 +25,8 @@ def add_meeting(request):
     tomeet.save()
     return redirect(meeting)
 
+def delete_to_meet(request, id):
+    tomeet = ToMeet.objects.get(id=id)
+    tomeet.delete()
+    return redirect(meeting)
+
