@@ -57,3 +57,8 @@ def add_goal(request):
     goalForMonth = Goal_for_month(goal=goal, month=month, difficulty=difficulty, reason_for_goal=reason_for_goal)
     goalForMonth.save()
     return redirect(goal_for_month)
+
+def delete_goal(request, id):
+    goalForMonth = Goal_for_month.objects.get(id=id)
+    goalForMonth.delete()
+    return redirect(goal_for_month)

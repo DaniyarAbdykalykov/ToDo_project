@@ -8,7 +8,6 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Цели на месяц</title>
     <link rel="stylesheet" href="{% static 'homework/styles/goal_for_month.css' %}" />
-    <link rel="stylesheet" href="{% static 'styles/checkbox.css' %}">
 </head>
 
 <body>
@@ -17,10 +16,10 @@
         <div class="create_container">
             <form action="{% url 'add-goal' %}" method="POST">
                 {% csrf_token %}
-                <input class="create_input" type="text" placeholder="Напишите сюда новую задачу" name="add_goal_text" />
+                <input class="create_input" type="text" placeholder="Цель на месяц" name="add_goal_text" />
                 <input class="create_input" type="month" name="add_goal_date" />
                 <input class="create_input" type="range" placeholder="Выберите сложность задачи" name="add_goal_difficulty" />
-                <input class="create_input" type="text" placeholder="Напишите причину" name="add_goal_reason" />
+                <input class="create_input" type="text" placeholder="Подробности" name="add_goal_reason" />
                 <button class="create_button">Добавить</button>
             </form>
         </div>
@@ -29,11 +28,7 @@
 
             {% for goalForMonth in goal_for_month_list %}
             <div class="todo_item">
-                <div class="todo_item_header">
-                    <label class="checkbox_container">
-                        <input type="checkbox" />
-                        <span class="checkmark"></span>
-                    </label>
+                <div class="todo_item_header">                    
                     <h4>{{goalForMonth.goal}}</h4>
                 </div>
                 <p>{{goalForMonth.difficulty}}</p>
@@ -43,8 +38,7 @@
                 <div class="todo_item_footer">
                     <p>{{ goalForMonth.month }}</p>
                     <div class="action_buttons">
-                        <img src="{% static './icons/unmarked.png' %}" />
-                        <img src="{% static './icons/delete.png' %}" />
+                        <a href="{% url 'delete-goal' goalForMonth.id %}"><img src="{% static './icons/delete.png' %}" /></a>
                     </div>
                 </div>
             </div>
