@@ -16,9 +16,14 @@
         <div class="create_container">
             <form action="{% url 'add-goal' %}" method="POST">
                 {% csrf_token %}
-                <input class="create_input" type="text" placeholder="Цель на месяц" name="add_goal_text" />
-                <input class="create_input" type="month" name="add_goal_date" />
-                <input class="create_input" type="range" placeholder="Выберите сложность задачи" name="add_goal_difficulty" />
+                <div class="input_container">
+                    <input class="create_input" type="text" placeholder="Цель на месяц" name="add_goal_text" />
+                    <input class="create_input" type="month" name="add_goal_date" />
+                </div>
+                <div class="select_difficulty">
+                    <h4>Уровень сложности</h4>
+                    <input class="create_difficulty" type="range" placeholder="Выберите сложность задачи" name="add_goal_difficulty" />
+                </div>
                 <input class="create_input" type="text" placeholder="Подробности" name="add_goal_reason" />
                 <button class="create_button">Добавить</button>
             </form>
@@ -30,9 +35,9 @@
             <div class="todo_item">
                 <div class="todo_item_header">                    
                     <h4>{{goalForMonth.goal}}</h4>
+                    <p>Уровень сложности: {{goalForMonth.difficulty}}</p>
                 </div>
-                <p>{{goalForMonth.difficulty}}</p>
-                <div>
+                <div class="todo_item_reason">
                     <p>{{goalForMonth.reason_for_goal}}</p>
                 </div>
                 <div class="todo_item_footer">
