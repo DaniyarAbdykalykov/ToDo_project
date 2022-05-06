@@ -17,10 +17,12 @@
         <div class="create_container">
             <form action="{% url 'add-meeting' %}" method="POST">
                 {% csrf_token %}
-                <input class="create_input" type="text" placeholder="С кем нужно встретиться" name="todo_persone" />
-                <input class="create_input" type="text" placeholder="Номер телефона" name="meeting_phone" />
+                <div class="input_container">
+                    <input class="create_input" type="text" placeholder="С кем нужно встретиться" name="todo_persone" />
+                    <input class="create_input" type="text" placeholder="Номер телефона" name="meeting_phone" />
+                    <input class="create_input" type="datetime-local" name="meeting_date" />
+                </div>
                 <input class="create_input" type="text" placeholder="Комментарий" name="meeting_comment" />
-                <input class="create_input" type="datetime-local" name="meeting_date" />
                 <button class="create_button">Добавить</button>
             </form>
         </div>
@@ -35,19 +37,22 @@
                     done
                 {% endif %}            
             ">
-                <div class="todo_item_header">
-                    <label class="checkbox_container">
-                        <input type="checkbox" 
-                        {% if tomeet.is_closed %}
-                            checked
-                        {% endif %}
-                        />
-                        <span class="checkmark"></span>
-                    </label>
-                    <h4><a href="{% url 'close-to-meet' tomeet.id %}">Встреча с {{tomeet.persone}}</a></h4>
-                </div>
-                <div class="todo_item_phone_number">
-                    <p>контакт: {{ tomeet.phone_number }}</p>
+                <div>
+
+                    <div class="todo_item_header">
+                        <label class="checkbox_container">
+                            <input type="checkbox" 
+                            {% if tomeet.is_closed %}
+                                checked
+                            {% endif %}
+                            />
+                            <span class="checkmark"></span>
+                        </label>
+                        <h4><a href="{% url 'close-to-meet' tomeet.id %}">{{tomeet.persone}}</a></h4>
+                    </div>
+                    <div class="todo_item_phone_number">
+                        <p>контакт: {{ tomeet.phone_number }}</p>
+                    </div>
                 </div>
                 <div class="todo_item_comment">
                     <p>{{ tomeet.comment }}</p>
