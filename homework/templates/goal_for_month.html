@@ -21,20 +21,24 @@
 
         <div class="todo_container">
 
-            {% for goal_for_month in goal_for_month_list %}
+            {% for goalForMonth in goal_for_month_list %}
             <div class="todo_item">
                 <div class="todo_item_header">
                     <label class="checkbox_container">
                         <input type="checkbox" />
                         <span class="checkmark"></span>
                     </label>
-                    <h4>{{goal_for_month.goal}}</h4>
+                    <h4>{{goalForMonth.goal}}</h4>
+                </div>
+                <p>{{goalForMonth.difficulty}}</p>
+                <div>
+                    <p>{{goalForMonth.reason_for_goal}}</p>
                 </div>
                 <div class="todo_item_footer">
-                    <p>{{ goal_for_month.MONTHS_CHOICES }}</p>
+                    <p>{{ goalForMonth.month }}</p>
                     <div class="action_buttons">
-                        <img src="./icons/unmarked.png" />
-                        <img src="./icons/delete.png" />
+                        <img src="{% static './icons/unmarked.png' %}" />
+                        <img src="{% static './icons/delete.png' %}" />
                     </div>
                 </div>
             </div>

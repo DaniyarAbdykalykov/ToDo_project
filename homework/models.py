@@ -14,22 +14,22 @@ class ToMeet(models.Model):
 class Goal_for_month(models.Model):
 
     MONTHS_CHOICES = [
-    ('1', 'Январь'),
-    ('2', 'Февраль'),
-    ('3', 'Март'),
-    ('4', 'Апрель'),
-    ('5', 'Май'),
-    ('6', 'Июнь'),
-    ('7', 'Июль'),
-    ('8', 'Август'),
-    ('9', 'Сентябрь'),
-    ('10', 'Октябрь'),
-    ('11', 'Ноябрь'),
-    ('12', 'Декабрь')
+    ('Январь', 'Январь'),
+    ('Февраль', 'Февраль'),
+    ('Март', 'Март'),
+    ('Апрель', 'Апрель'),
+    ('Май', 'Май'),
+    ('Июнь', 'Июнь'),
+    ('Июль', 'Июль'),
+    ('Август', 'Август'),
+    ('Сентябрь', 'Сентябрь'),
+    ('Октябрь', 'Октябрь'),
+    ('Ноябрь', 'Ноябрь'),
+    ('Декабрь', 'Декабрь')
 ]
 
     goal = models.CharField(max_length=250)
-    month = models.CharField(max_length=2, choices= MONTHS_CHOICES, default='1')
+    month = models.CharField(max_length=10, choices= MONTHS_CHOICES, default='Январь')
     difficulty = models.PositiveSmallIntegerField()
     reason_for_goal = models.TextField()
 
